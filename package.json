@@ -7,11 +7,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "effector": "^20.17.2",
+    "effector-react": "^20.8.0",
     "next": "latest",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "effector": "^20.14.0",
-    "effector-react": "^20.7.1"
+    "react-dom": "^16.9.0"
   },
   "license": "ISC",
   "devDependencies": {

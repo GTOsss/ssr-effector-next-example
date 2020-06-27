@@ -1,13 +1,14 @@
 import React from 'react';
 import {useStore, useEvent} from 'effector-react/ssr';
-import {serialize, fork} from 'effector/fork';
+import {serialize, fork, allSettled} from 'effector/fork';
 import root from '../store/root';
 import {$count, inc as incEvent} from '../store/counter';
-
-// incEvent(3); // ok
+import {getUserFx, user$} from '../store/user';
+// import {getFriendsFx, friends$} from '../store/friends';
 
 export const getServerSideProps = async (context) => {
-  // incEvent(3); // fail
+  const scope = fork(root);
+  await allSettled(getUserFx, {scope})
 
   return {
     props: {
@@ -16,24 +17,33 @@ export const getServerSideProps = async (context) => {
   };
 };
 
-const Dashboard = ({lang}) => {
+const Dashboard = () => {
   const count = useStore($count);
   const inc = useEvent(incEvent);
 
-  if (count < 3) {
-    inc(1); // ok
-  }
+  const getUser = useEvent(getUserFx);
+
+  const user = useStore(user$);
+  const userPending = useStore(getUserFx.pending);
 
   return (
     <div className="container">
       <h2>Test effector</h2>
-      <div>value from store: {count}</div>
       <button style={{border: '2px solid grey'}} onClick={() => inc(1)}>
         inc 1
       </button>
-      <button style={{border: '2px solid grey'}} onClick={() => inc(2)}>
-        inc 2
+      <div>value from store: {count}</div>
+
+      <br />
+
+      <h3>User</h3>
+      <button
+        onClick={() => getUser()}
+        disabled={userPending}
+      >
+        {userPending ? 'pending...' : 'update user'}
       </button>
+      <pre>{JSON.stringify(user, null, '  ')}</pre>
     </div>
   );
 };

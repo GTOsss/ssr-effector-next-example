@@ -7,7 +7,7 @@ export const isBrowser = () => typeof window !== 'undefined';
 export default function App({ Component, pageProps }) {
 
   if (isBrowser()) {
-    hydrate(root, { values: pageProps.store }); // why pageProps.store is empty object
+    hydrate(root, { values: pageProps.store });
   }
 
   const scope = fork(root);
