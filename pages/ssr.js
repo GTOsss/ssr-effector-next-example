@@ -13,6 +13,7 @@ export const getServerSideProps = async (context) => {
   return {
     props: {
       store: serialize(scope),
+      initialFields: ['-q3lce9', 'ptt6gs'],
     },
   };
 };

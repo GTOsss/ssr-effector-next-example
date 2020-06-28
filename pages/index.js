@@ -1,6 +1,6 @@
 import React from 'react';
 import {serialize, fork, allSettled} from 'effector/fork';
-import {combine} from 'effector';
+// import {combine} from 'effector';
 import root from '../store/root';
 import {getUserFx, $user} from '../store/user';
 import {getFriendsFx, setPage as setPageEvent, $page, $friends} from '../store/friends';
@@ -8,6 +8,16 @@ import Page from '../components/page';
 import {useEvent, useStore} from 'effector-react/ssr';
 import {$count, inc as incEvent} from '../store/counter-index-page';
 import Loader from '../components/loader';
+
+// function serializeDiff(root, scope) {
+//   const ignore = []
+//   for (const store of root.history.stores) {
+//     if (scope.getState(store) === store.defaultState) {
+//       ignore.push(store)
+//     }
+//   }
+//   return serialize(scope, {ignore})
+// }
 
 export const getServerSideProps = async (context) => {
   const scope = fork(root);
