@@ -19,9 +19,7 @@ export const getServerSideProps = async (context) => {
 
 const Dashboard = () => {
   return (
-    <Page>
-      <h1>Index</h1>
-    </Page>
+    <Page />
   );
 };
 

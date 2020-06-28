@@ -5,12 +5,7 @@ import root from '../store/root';
 export const isBrowser = () => typeof window !== 'undefined';
 
 export default function App({ Component, pageProps }) {
-
-  if (isBrowser()) {
-    hydrate(root, { values: pageProps.store });
-  }
-
-  const scope = fork(root);
+  const scope = fork(root, {values: pageProps.store});
 
   return (
     <EffectorProvider value={scope}>

@@ -1,27 +1,19 @@
 import Link from 'next/link'
 
+const styleLink = {padding: '4px 8px'};
+
 const Nav = () => {
   return (
     <nav>
       <Link href="/">
-        <a>Index</a>
+        <a style={styleLink}>Index</a>
       </Link>
       <Link href="/ssg">
-        <a>SSG</a>
+        <a style={styleLink}>SSG</a>
       </Link>
       <Link href="/ssr">
-        <a>SSR</a>
+        <a style={styleLink}>SSR</a>
       </Link>
-      <Link href="/test-effector">
-        <a>Test effector</a>
-      </Link>
-      <style jsx>
-        {`
-          a {
-            margin-right: 25px;
-          }
-        `}
-      </style>
     </nav>
   )
 }
