@@ -12,7 +12,7 @@ export const getServerSideProps = async (context) => {
 
   return {
     props: {
-      store: serialize(fork(root)),
+      store: serialize(scope),
     },
   };
 };

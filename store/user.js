@@ -10,8 +10,6 @@ const getUserFx = root.createEffect({
 const user$ = root.createStore({})
   .on(getUserFx.doneData, (_, user) => user);
 
-getUserFx.doneData.watch(console.log);
-
 export {
   getUserFx,
   user$,
