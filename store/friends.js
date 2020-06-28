@@ -1,10 +1,10 @@
-import {sample, combine} from 'effector';
+import {sample} from 'effector';
 import root from './root';
 import {getFriends} from '../mock-server';
 
 const setPage = root.createEvent();
 
-const page$ = root.createStore(0)
+const $page = root.createStore(0)
   .on(setPage, (_, page) => page);
 
 const getFriendsFx = root.createEffect({
@@ -13,18 +13,18 @@ const getFriendsFx = root.createEffect({
   }
 });
 
-const friends$ = root.createStore([])
+const $friends = root.createStore([])
   .on(getFriendsFx.doneData, (_, friends) => friends);
 
 sample({
-  source: page$,
+  source: $page,
   target: getFriendsFx,
 });
 
 export {
   getFriendsFx,
-  friends$,
+  $friends,
   setPage,
-  page$,
+  $page,
 };
 

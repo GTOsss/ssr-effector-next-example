@@ -8,11 +8,11 @@ const Nav = () => {
       <Link href="/">
         <a style={styleLink}>Index</a>
       </Link>
-      <Link href="/ssg">
-        <a style={styleLink}>SSG</a>
-      </Link>
       <Link href="/ssr">
         <a style={styleLink}>SSR</a>
+      </Link>
+      <Link href="/ssg">
+        <a style={styleLink}>SSG</a>
       </Link>
     </nav>
   )

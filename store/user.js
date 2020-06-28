@@ -7,10 +7,10 @@ const getUserFx = root.createEffect({
   }
 });
 
-const user$ = root.createStore({})
+const $user = root.createStore({})
   .on(getUserFx.doneData, (_, user) => user);
 
 export {
   getUserFx,
-  user$,
+  $user,
 };
