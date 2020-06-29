@@ -1,23 +1,11 @@
 import React from 'react';
 import {serialize, fork, allSettled} from 'effector/fork';
-// import {combine} from 'effector';
 import root from '../store/root';
 import {getUserFx, $user} from '../store/user';
 import {getFriendsFx, setPage as setPageEvent, $page, $friends} from '../store/friends';
 import Page from '../components/page';
 import {useEvent, useStore} from 'effector-react/ssr';
 import {$count, inc as incEvent} from '../store/counter-index-page';
-import Loader from '../components/loader';
-
-// function serializeDiff(root, scope) {
-//   const ignore = []
-//   for (const store of root.history.stores) {
-//     if (scope.getState(store) === store.defaultState) {
-//       ignore.push(store)
-//     }
-//   }
-//   return serialize(scope, {ignore})
-// }
 
 export const getServerSideProps = async (context) => {
   const scope = fork(root);
@@ -30,9 +18,6 @@ export const getServerSideProps = async (context) => {
     },
   };
 };
-
-// const $loadingPage = combine([getUserFx.pending, getFriendsFx.pending])
-//   .map(loadings => loadings.includes(true));
 
 const Dashboard = () => {
   const count = useStore($count);
@@ -49,8 +34,6 @@ const Dashboard = () => {
   const friends = useStore($friends);
   const friendsPending = useStore(getFriendsFx.pending);
 
-  // const isLoadingPage = useStore($loadingPage);
-
   if (count < 1) {
     inc(3);
   }
@@ -59,40 +42,40 @@ const Dashboard = () => {
     <Page>
       <h1>Index</h1>
 
-      <Loader isLoading={false}>
-        <br />
+      <Test />
 
-        <button style={{border: '2px solid grey'}} onClick={() => inc(1)}>
-          inc 1
-        </button>
-        <div>value from store: {count}</div>
+      <br />
 
-        <br />
+      <button style={{border: '2px solid grey'}} onClick={() => inc(1)}>
+        inc 1
+      </button>
+      <div>value from store: {count}</div>
 
-        <h3>User</h3>
-        <button
-          onClick={() => getUser()}
-          disabled={userPending}
-        >
-          {userPending ? 'pending...' : 'update user'}
-        </button>
-        <pre>{JSON.stringify(user, null, '  ')}</pre>
+      <br />
 
-        <br />
+      <h3>User</h3>
+      <button
+        onClick={() => getUser()}
+        disabled={userPending}
+      >
+        {userPending ? 'pending...' : 'update user'}
+      </button>
+      <pre>{JSON.stringify(user, null, '  ')}</pre>
 
-        <h3>Users</h3>
-        <button onClick={() => setPage(page - 1)} disabled={(page <= 0) || friendsPending}>
-          previous page
-        </button>
-        <button onClick={() => setPage(page + 1)} disabled={(page >= 3) || friendsPending}>
-          next page
-        </button>
-        <div>page: {page}</div>
-        {friendsPending
-          ? 'loading...'
-          : (<pre>{JSON.stringify(friends, null, '  ')}</pre>)
-        }
-      </Loader>
+      <br />
+
+      <h3>Users</h3>
+      <button onClick={() => setPage(page - 1)} disabled={(page <= 0) || friendsPending}>
+        previous page
+      </button>
+      <button onClick={() => setPage(page + 1)} disabled={(page >= 3) || friendsPending}>
+        next page
+      </button>
+      <div>page: {page}</div>
+      {friendsPending
+        ? 'loading...'
+        : (<pre>{JSON.stringify(friends, null, '  ')}</pre>)
+      }
     </Page>
   );
 };
