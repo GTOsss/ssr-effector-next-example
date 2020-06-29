@@ -42,8 +42,6 @@ const Dashboard = () => {
     <Page>
       <h1>Index</h1>
 
-      <Test />
-
       <br />
 
       <button style={{border: '2px solid grey'}} onClick={() => inc(1)}>
