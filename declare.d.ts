@@ -1,0 +1,1 @@
+type ID = string | number;

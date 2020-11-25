@@ -1,11 +1,8 @@
 import {Provider as EffectorProvider} from 'effector-react/ssr';
 import {fork, serialize} from 'effector/fork';
-import root from '@store/root';
-import '@store/user';
-import '@store/counter-index-page';
-import '@store/ssr-data-example';
-import '@store/ssg-data-example';
-import '@store/friends';
+import root from '@store/root-domain';
+
+import '@store/attributes';
 
 const isBrowser = () => typeof window !== 'undefined';
 
