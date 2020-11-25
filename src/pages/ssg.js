@@ -1,9 +1,9 @@
 import React from 'react';
 import {serialize, fork, allSettled} from 'effector/fork';
 import {useStore} from 'effector-react/ssr';
-import root from '../store/root';
-import Page from '../components/page';
-import {getSSGDataExampleFx, $ssgData} from '../store/ssg-data-example';
+import root from '@store/root';
+import Page from '@components/page';
+import {getSSGDataExampleFx, $ssgData} from '@store/ssg-data-example';
 
 export const getStaticProps = async (context) => {
   const scope = fork(root);
@@ -11,7 +11,7 @@ export const getStaticProps = async (context) => {
 
   return {
     props: {
-      store: serialize(scope),
+      store: serialize(scope, { onlyChanges: true }),
     },
   };
 };

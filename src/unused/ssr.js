@@ -1,4 +1,4 @@
-import Page from '../components/page'
+import Page from '@components/page'
 import { initializeStore } from '../store'
 
 export default function SSR() {

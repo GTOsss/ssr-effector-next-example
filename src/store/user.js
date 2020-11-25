@@ -1,5 +1,5 @@
 import root from './root';
-import {getUser} from '../mock-server';
+import {getUser} from '../../mock-server';
 
 const getUserFx = root.createEffect({
   async handler() {

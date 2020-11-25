@@ -1,0 +1,101 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
+    "preserveConstEnums": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "removeComments": false,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@public/*": [
+        "./public/*"
+      ],
+      "@ts/*": [
+        "./src/ts/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@sections/*": [
+        "./src/sections/*"
+      ],
+      "@api/*": [
+        "./src/api/*"
+      ],
+      "@contexts/*": [
+        "./src/contexts/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@i18n/*": [
+        "./src/i18n/*"
+      ],
+      "@locales/*": [
+        "./src/locales/*"
+      ],
+      "@lib/*": [
+        "./src/lib/*"
+      ],
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@middlewares/*": [
+        "./src/middlewares/*"
+      ],
+      "@mock/*": [
+        "./src/mock/*"
+      ],
+      "@routes/*": [
+        "./src/routes/*"
+      ],
+      "@scss/*": [
+        "./src/scss/*"
+      ],
+      "@store/*": [
+        "./src/store/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@vendors/*": [
+        "./src/vendors/*"
+      ],
+      "@services/*": [
+        "./src/services/*"
+      ],
+      "@constants/*": [
+        "./src/constants/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    ".eslintrc.js",
+    "src/i18n/*.js"
+  ]
+}

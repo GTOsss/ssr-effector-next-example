@@ -1,5 +1,5 @@
 import root from './root';
-import {getSSGDataExample} from '../mock-server';
+import {getSSGDataExample} from '../../mock-server';
 
 const getSSGDataExampleFx = root.createEffect({
   async handler() {

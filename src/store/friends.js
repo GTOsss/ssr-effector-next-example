@@ -1,6 +1,6 @@
 import {sample} from 'effector';
 import root from './root';
-import {getFriends} from '../mock-server';
+import {getFriends} from '../../mock-server';
 
 const setPage = root.createEvent();
 

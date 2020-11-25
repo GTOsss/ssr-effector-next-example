@@ -1,11 +1,11 @@
 import React from 'react';
 import {serialize, fork, allSettled} from 'effector/fork';
-import root from '../store/root';
-import {getUserFx, $user} from '../store/user';
-import {getFriendsFx, setPage as setPageEvent, $page, $friends} from '../store/friends';
-import Page from '../components/page';
+import root from '@store/root';
+import {getUserFx, $user} from '@store/user';
+import {getFriendsFx, setPage as setPageEvent, $page, $friends} from '@store/friends';
+import Page from '@components/page';
 import {useEvent, useStore} from 'effector-react/ssr';
-import {$count, inc as incEvent} from '../store/counter-index-page';
+import {$count, inc as incEvent} from '@store/counter-index-page';
 
 export const getServerSideProps = async (context) => {
   const scope = fork(root);
@@ -14,7 +14,7 @@ export const getServerSideProps = async (context) => {
 
   return {
     props: {
-      store: serialize(scope),
+      store: serialize(scope, { onlyChanges: true }),
     },
   };
 };
