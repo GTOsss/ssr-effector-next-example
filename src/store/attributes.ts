@@ -5,6 +5,12 @@ export const form = createForm({
   domain: rootDomain,
 });
 
+export const form2 = createForm({
+  domain: rootDomain,
+});
+
+console.log(form.setValue.sid, form2.setValue.sid);
+
 export const getAttributeFx = createEffect({
   handler: async (id) => '',
 });
