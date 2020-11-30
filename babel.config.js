@@ -7,7 +7,7 @@ module.exports = (api) => {
       'effector/babel-plugin',
       {
         factories: ['@vendors/effector-react-form'],
-        importName: ['effector', 'effector/effector.mjs', '@store/root-domain'],
+        importName: ['effector', 'effector/effector/effector.mjs', '@store/root-domain'],
       },
     ],
   ];
