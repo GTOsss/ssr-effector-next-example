@@ -10,12 +10,12 @@
     "axios": "^0.21.0",
     "effector": "^21.7.5",
     "effector-react": "^21.1.0",
-    "lodash.debounce": "^4.0.8",
-    "lodash.omit": "^4.5.0",
     "next": "^10.0.3",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "uuid": "^8.3.1"
+    "react-dom": "^16.9.0"
+  },
+  "resolutions": {
+    "webpack": "^5.0.0-beta.30"
   },
   "license": "ISC",
   "devDependencies": {
