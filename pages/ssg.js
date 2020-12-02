@@ -11,7 +11,7 @@ export const getStaticProps = async (context) => {
 
   return {
     props: {
-      store: serialize(scope),
+      store: serialize(scope, {onlyChanges: true}),
     },
   };
 };
