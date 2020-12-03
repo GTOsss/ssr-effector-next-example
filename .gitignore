@@ -91,10 +91,7 @@ vcs.xml
 .idea/codestream.xml
 
 # dependencies
-/node_modules/next
-/node_modules/react
-/node_modules/react-dom
-/node_modules/webpack
+/node_modules
 /.pnp
 .pnp.js
 
