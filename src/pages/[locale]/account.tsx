@@ -1,15 +1,11 @@
 import React from 'react';
-import { fork, serialize } from 'effector';
-import rootDomain from '@store/root-domain';
+import {mapObject} from '1-a';
 
-export const getStaticProps = async (props, scope?) => {
-  const currentScope = scope || fork(rootDomain);
+export const getStaticProps = async (props) => {
 
   return {
     props: {
-      isReadyToRender: true,
-      isStaticRendering: true,
-      store: serialize(currentScope, { onlyChanges: true }),
+      store: mapObject,
     },
   };
 };
@@ -30,6 +26,7 @@ export const getStaticPaths = async () => {
 };
 
 const UserAccountPage = (props) => {
+  console.log(props.store)
   return <div>test</div>;
 };
 

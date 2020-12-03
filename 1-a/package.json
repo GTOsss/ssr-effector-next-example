@@ -1,0 +1,41 @@
+{
+  "name": "1-a",
+  "version": "0.0.1",
+  "main": "1-a.cjs.js",
+  "module": "1-a.mjs",
+  "umd:main": "1-a.umd.js",
+  "jsnext:main": "1-a.mjs",
+  "typings": "index.d.ts",
+  "dependencies": {},
+  "exports": {
+    ".": {
+      "require": "./1-a.cjs.js",
+      "default": "./1-a.mjs"
+    },
+    "./1-a.mjs": "./1-a.mjs"
+  },
+  "browser": {
+    "./plugin/defaultMetaVisitor.js": "./plugin/noopMetaVisitor.js"
+  },
+  "keywords": [
+    "data",
+    "effect",
+    "event",
+    "functional",
+    "reactive",
+    "state manager",
+    "state-manager",
+    "state",
+    "store"
+  ],
+  "sideEffects": false,
+  "license": "MIT",
+  "devDependencies": {},
+  "scripts": {},
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

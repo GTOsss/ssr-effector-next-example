@@ -1,37 +1,18 @@
 import React from 'react';
-import { Provider as EffectorProvider } from 'effector-react/ssr';
-import { mergeState } from '@utils/ssr';
-import { getInjectedPageProps } from '@utils/nextjs/app-page-props';
-import '@store/data/currency';
-import '@store/root-domain';
-import { getCurrentUser } from '@store/user';
-import '@store/admin/products-table';
-import '@store/data/by-seo-nav-variant/categories';
+import {setValue} from '1-a';
+import '@store/store-element';
+
+setValue('1', 1);
 
 const App = (props) => {
-  const { Component, pageProps, err } = props;
-  const injectedPageProps = getInjectedPageProps(pageProps);
-  const { isReadyToRender, statusCode } = injectedPageProps;
+  const {Component, pageProps, err} = props;
 
-  React.useEffect(() => {
-    getCurrentUser();
-  }, []);
-
-  if (isReadyToRender || statusCode === 404) {
-    const scope = mergeState(injectedPageProps);
-
-    return (
-      <EffectorProvider value={scope}>
-        <Component
-          {...injectedPageProps}
-          // @ts-ignore
-          error={err}
-        />
-      </EffectorProvider>
-    );
-  } else {
-    return null;
-  }
+  return (
+    <Component
+      {...pageProps}
+      error={err}
+    />
+  );
 };
 
 export default App;

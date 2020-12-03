@@ -3,13 +3,13 @@ module.exports = (api) => {
 
   const presets = ['next/babel'];
   const plugins = [
-    [
-      'effector/babel-plugin',
-      {
-        factories: ['@vendors/effector-react-form'],
-        importName: ['effector', 'effector/effector/effector.mjs', '@store/root-domain'],
-      },
-    ],
+    // [
+    //   'effector/babel-plugin',
+    //   {
+    //     factories: ['@vendors/effector-react-form'],
+    //     importName: ['effector', 'effector/effector/effector.mjs', '@store/root-domain'],
+    //   },
+    // ],
   ];
 
   return {
