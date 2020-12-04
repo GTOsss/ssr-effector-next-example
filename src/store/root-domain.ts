@@ -1,4 +1,4 @@
-import { createDomain, attach, forward, combine, sample } from 'effector/effector.mjs';
+import { createDomain, attach, forward, combine, sample } from 'effector';
 
 const rootDomain = createDomain();
 
