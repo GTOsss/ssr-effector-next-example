@@ -2,7 +2,6 @@ import React from 'react';
 import {mapObject} from '1-a';
 
 export const getStaticProps = async (props) => {
-
   return {
     props: {
       store: mapObject,
@@ -26,7 +25,7 @@ export const getStaticPaths = async () => {
 };
 
 const UserAccountPage = (props) => {
-  console.log(props.store)
+  console.log(props.store, mapObject)
   return <div>test</div>;
 };
 

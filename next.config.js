@@ -8,23 +8,23 @@ module.exports = {
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     const target = isServer ? 'server' : 'client';
     console.log(target);
-    config.resolve.extensions = [
-      ".mjs",
-      ".js",
-      ".tsx",
-      ".ts",
-      ".jsx",
-      ".json",
-      ".wasm"
-    ];
+    // config.resolve.extensions = [
+    //   ".mjs",
+    //   ".js",
+    //   ".tsx",
+    //   ".ts",
+    //   ".jsx",
+    //   ".json",
+    //   ".wasm"
+    // ];
 
-    config.module.rules.push({
-      test: /\.m?js$/,
-      type: 'javascript/auto',
-      resolve: {
-        fullySpecified: false,
-      }
-    });
+    // config.module.rules.push({
+    //   test: /\.m?js$/,
+    //   type: 'javascript/auto',
+    //   resolve: {
+    //     fullySpecified: false,
+    //   }
+    // });
 
     fs.writeFileSync(`webpack-config-${target}.json`, JSON.stringify(config, null, '  '))
 
