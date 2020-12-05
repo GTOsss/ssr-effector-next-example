@@ -1,6 +1,5 @@
 import {Provider as EffectorProvider} from 'effector-react/ssr';
-import '@store/attributes';
-import '@store/counter-index-page';
+import '@store/data';
 import {mergeState} from '@utils/merge-state';
 
 export default function App({Component, pageProps}) {

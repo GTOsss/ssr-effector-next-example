@@ -1,13 +1,15 @@
 import React from 'react';
 import {serialize, fork, allSettled} from 'effector';
 import root from '@store/root-domain';
-import {useEvent, useStore} from 'effector-react/ssr';
+import {useStore} from 'effector-react/ssr';
 import Page from '@components/page';
-import {$count, inc, reset} from '@store/counter-index-page';
+import {$data, $page, setPage} from '@store/data';
+import {GetServerSidePropsContext} from 'next';
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async ({query}: GetServerSidePropsContext) => {
+  const {page} = query;
   const scope = fork(root);
-  await allSettled(reset, {scope});
+  await allSettled(setPage, {scope, params: page});
 
   return {
     props: {
@@ -17,27 +19,13 @@ export const getServerSideProps = async (context) => {
 };
 
 const Dashboard = () => {
-  const count = useStore($count);
-  const events = useEvent({inc});
-
-  // if (count < 1) {
-  //   events.inc(3);
-  // }
+  const currentPageData = useStore($data);
+  const page = useStore($page);
 
   return (
     <Page>
-      <h1>Index</h1>
-
-      <br />
-
-      <button style={{border: '2px solid grey'}} onClick={() => events.inc(1)}>
-        inc 1
-      </button>
-      <div>value from store: {count}</div>
-
-      <br />
-
-      <h3>User</h3>
+      <h1>{currentPageData.title}</h1>
+      <div>current page: {page}</div>
     </Page>
   );
 };
