@@ -1,8 +1,18 @@
 import rootDomain, {createEffect, createStore} from '@store/root-domain';
-import {createForm} from 'effector-react-form';
+import {createForm} from 'effector-react-form/ssr';
 
-export const form = createForm({
+type Values = {
+  price: string;
+  size: string;
+};
+
+export const form = createForm<Values>({
   domain: rootDomain,
+  onSubmit: (params) => console.log(params),
+  initialValues: {
+    size: 'default size',
+    price: '',
+  }
 });
 
 export const form2 = createForm({

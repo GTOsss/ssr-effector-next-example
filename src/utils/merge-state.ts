@@ -2,7 +2,7 @@ import {fork, hydrate} from 'effector';
 import {clientScope} from './client-scope';
 import rootDomain from '@store/root-domain';
 
-const isBrowser = () => typeof window !== 'undefined';
+export const isBrowser = () => typeof window !== 'undefined';
 
 // deprecated
 //

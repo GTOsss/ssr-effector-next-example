@@ -6,7 +6,6 @@ const nextConfig = {
     config.resolve.alias.effector = path.resolve('./node_modules/effector/effector.cjs.js');
     config.resolve.alias['effector-react/ssr'] = path.resolve('./node_modules/effector-react/ssr.js');
     config.resolve.alias['effector-react'] = path.resolve('./node_modules/effector-react/ssr.js');
-    config.resolve.alias['effector-react-form'] = path.resolve('./node_modules/effector-react-form/ssr.js');
 
     const target = isServer ? 'server' : 'client';
     fs.writeFileSync(`webpack-config-${target}.json`, JSON.stringify(config, null, '  '));

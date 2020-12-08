@@ -1,14 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {serialize, fork, allSettled} from 'effector';
 import root from '@store/root-domain';
-import {useEvent, useStore} from 'effector-react/ssr';
 import Page from '@components/page';
-import {$count, inc, reset} from '@store/counter-index-page';
+import {form} from '@store/attributes';
+import {useForm} from 'effector-react-form/ssr';
+import {GetServerSidePropsContext} from 'next';
+import Input from '@components/input';
+import {useStore} from 'effector-react/ssr';
+import Link from 'next/link';
+import {useRouter} from 'next/router';
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async ({query}: GetServerSidePropsContext) => {
   const scope = fork(root);
-  await allSettled(reset, {scope});
-
+  await allSettled(form.setValue, {scope, params: {field: 'price', value: query.price || 0}});
+  console.log('GSSP <<<<<<<<<<<');
   return {
     props: {
       store: serialize(scope, {onlyChanges: true}),
@@ -17,27 +22,43 @@ export const getServerSideProps = async (context) => {
 };
 
 const Dashboard = () => {
-  const count = useStore($count);
-  const events = useEvent({inc});
+  const {controller, handleSubmit} = useForm({
+    form,
+  });
+  const {price, size} = useStore(form.$values);
+  const router = useRouter();
 
-  // if (count < 1) {
-  //   events.inc(3);
-  // }
+  useEffect(() => {
+    window.history.replaceState(null, null, `?price=${price}`);
+  }, [price])
 
   return (
     <Page>
       <h1>Index</h1>
 
-      <br />
-
-      <button style={{border: '2px solid grey'}} onClick={() => events.inc(1)}>
-        inc 1
-      </button>
-      <div>value from store: {count}</div>
+      <form onSubmit={handleSubmit}>
+        <Input label="Price" controller={controller({name: 'price'})} />
+        <Input label="Size" controller={controller({name: 'size'})} />
+      </form>
 
       <br />
 
-      <h3>User</h3>
+      <Link href="/?price=100">
+        <a>price 100</a>
+      </Link>
+      <br />
+      <Link href="/?price=1000">
+        <a>price 1000</a>
+      </Link>
+
+      <br/>
+
+      <div>
+        current filters
+        price: {price}
+        <br />
+        size: {size}
+      </div>
     </Page>
   );
 };
