@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {serialize, fork, allSettled} from 'effector';
 import root from '@store/root-domain';
 import Page from '@components/page';
-import {form} from '@store/attributes';
+import {form} from '@store/filters';
 import {useForm} from 'effector-react-form/ssr';
 import {GetServerSidePropsContext} from 'next';
 import Input from '@components/input';
@@ -13,7 +13,6 @@ import {useRouter} from 'next/router';
 export const getServerSideProps = async ({query}: GetServerSidePropsContext) => {
   const scope = fork(root);
   await allSettled(form.setValue, {scope, params: {field: 'price', value: query.price || 0}});
-  console.log('GSSP <<<<<<<<<<<');
   return {
     props: {
       store: serialize(scope, {onlyChanges: true}),

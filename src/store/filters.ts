@@ -1,4 +1,4 @@
-import rootDomain, {createEffect, createStore} from '@store/root-domain';
+import rootDomain, {createStore} from '@store/root-domain';
 import {createForm} from 'effector-react-form/ssr';
 
 type Values = {
@@ -29,14 +29,4 @@ console.log(
     state: $state.sid,
   },
 );
-
-export const getAttributeFx = createEffect({
-  handler: async (id) => '',
-});
-
-export const putAttributeFx = createEffect({
-  handler: async ({values}) => {
-    return '';
-  },
-});
 

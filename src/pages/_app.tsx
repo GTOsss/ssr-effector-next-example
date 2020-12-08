@@ -1,5 +1,5 @@
 import {Provider as EffectorProvider} from 'effector-react/ssr';
-import '@store/attributes';
+import '@store/filters';
 import '@store/counter-index-page';
 import {useMergeState} from '@hooks/use-merge-state';
 
