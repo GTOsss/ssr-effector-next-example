@@ -1354,10 +1354,10 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-effector-react-form@^2.0.16:
-  version "2.0.16"
-  resolved "https://registry.yarnpkg.com/effector-react-form/-/effector-react-form-2.0.16.tgz#156d118f790744c6e1ab019956d8641a092354fd"
-  integrity sha512-82VeVl1pJNQ8lmG8nVHt6yCCYOQMjvcXmjguzhpv74fT1TWBElYH2kEnl3nQx3Wmo5LR5BRGwUg+RAbitTQJWQ==
+effector-react-form@2.0.20:
+  version "2.0.20"
+  resolved "https://registry.yarnpkg.com/effector-react-form/-/effector-react-form-2.0.20.tgz#1628028faf9c02fd5ae50cf4d4262f11340e920f"
+  integrity sha512-wH8W+5v7kCcemYu3RYUsznUTtA8uQ9hTSYEwRuDM8thwexqh5z/ERoFZ6TAXaOpujYZjzCjJ8wtl4L1sLzp+/w==
   dependencies:
     lodash.topath "^4.5.2"
 
