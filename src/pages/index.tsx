@@ -2,9 +2,10 @@ import React from 'react';
 import {serialize, fork, allSettled} from 'effector';
 import root from '@store/root-domain';
 import Page from '@components/page';
-import {setQueryData} from '@store/filters';
+import {setQueryData, someRequestFx} from '@store/filters';
 import {GetServerSidePropsContext} from 'next';
 import Link from 'next/link';
+import {useStore} from 'effector-react/ssr';
 
 export const getServerSideProps = async ({query}: GetServerSidePropsContext) => {
   const scope = fork(root);
@@ -18,6 +19,12 @@ export const getServerSideProps = async ({query}: GetServerSidePropsContext) => 
 };
 
 const Dashboard = () => {
+  const isLoading = useStore(someRequestFx.pending);
+
+  if (isLoading) {
+    return 'Loading...';
+  }
+
   return (
     <Page>
       <h1>Index</h1>
