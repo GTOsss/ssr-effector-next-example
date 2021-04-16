@@ -115,10 +115,7 @@
       "object.assign/polyfill": "E:\\projects\\srr-effector-next-example\\node_modules\\next\\dist\\build\\polyfills\\object.assign\\polyfill.js",
       "object.assign/shim": "E:\\projects\\srr-effector-next-example\\node_modules\\next\\dist\\build\\polyfills\\object.assign\\shim.js",
       "url": "E:\\projects\\srr-effector-next-example\\node_modules\\native-url\\dist\\index.js",
-      "E:\\projects\\srr-effector-next-example\\node_modules\\next\\dist\\next-server\\lib\\router\\utils\\resolve-rewrites.js": "E:\\projects\\srr-effector-next-example\\node_modules\\next\\dist\\next-server\\lib\\router\\utils\\resolve-rewrites.js",
-      "effector": "E:\\projects\\srr-effector-next-example\\node_modules\\effector\\effector.cjs.js",
-      "effector-react/ssr": "E:\\projects\\srr-effector-next-example\\node_modules\\effector-react\\ssr.js",
-      "effector-react": "E:\\projects\\srr-effector-next-example\\node_modules\\effector-react\\ssr.js"
+      "E:\\projects\\srr-effector-next-example\\node_modules\\next\\dist\\next-server\\lib\\router\\utils\\resolve-rewrites.js": "E:\\projects\\srr-effector-next-example\\node_modules\\next\\dist\\next-server\\lib\\router\\utils\\resolve-rewrites.js"
     },
     "mainFields": [
       "browser",

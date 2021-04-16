@@ -12,33 +12,19 @@ export const someRequestFx = createEffect(async (params) => {
   await sleep(500);
 });
 
-// Проблема в том, что эффект вызывается на сервере и на клиенте в момент гидратации.
-// Если эффект включит прелоудер на странице, реакт кинет warning о несовпадении dom дерева на
-// клиенте и бэке.
+let ignoreBrowserRequest = true;
+
+const isIgnoreRequest = () => {
+  if (isBrowser() && ignoreBrowserRequest) {
+    ignoreBrowserRequest = false;
+    return false;
+  }
+
+  return true;
+};
 
 sample({
   source: $queryData,
+  clock: $queryData.updates.filter({fn: isIgnoreRequest}),
   target: someRequestFx,
 })
-
-
-// //////////////////////////////////////////
-// //// Костыльное обходное решение
-// //////////////////////////////////////////
-//
-// let ignoreBrowserRequest = true;
-//
-// const isIgnoreRequest = () => {
-//   if (isBrowser() && ignoreBrowserRequest) {
-//     ignoreBrowserRequest = false;
-//     return false;
-//   }
-//
-//   return true;
-// };
-//
-// sample({
-//   source: $queryData,
-//   clock: $queryData.updates.filter({fn: isIgnoreRequest}),
-//   target: someRequestFx,
-// })
